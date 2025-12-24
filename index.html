@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tugas Pengulangan Web Dasar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            width: 320px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background-color: #4facfe;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #00c6fb;
+        }
+
+        .hasil {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f4f4f4;
+            border-radius: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        .ti { color: #e67e22; font-weight: bold; }
+        .unindra { color: #27ae60; font-weight: bold; }
+        .web { color: #2980b9; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Pengulangan Angka</h2>
+
+    <input type="number" id="angka" placeholder="Masukkan angka">
+
+    <br>
+    <button onclick="proses()">Proses</button>
+
+    <div class="hasil" id="hasil"></div>
+</div>
+
+<script>
+function proses() {
+    let n = document.getElementById("angka").value;
+    let hasil = "";
+    let i = 1;
+
+    if (n <= 0) {
+        document.getElementById("hasil").innerHTML = "Masukkan angka yang benar!";
+        return;
+    }
+
+    while (i <= n) {
+        if (i % 15 == 0) {
+            hasil += "<div class='web'>WEB</div>";
+        } else if (i % 3 == 0) {
+            hasil += "<div class='ti'>TI</div>";
+        } else if (i % 5 == 0) {
+            hasil += "<div class='unindra'>Unindra</div>";
+        } else {
+            hasil += "<div>" + i + "</div>";
+        }
+        i++;
+    }
+
+    document.getElementById("hasil").innerHTML = hasil;
+}
+</script>
+
+</body>
+</html>
